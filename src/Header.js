@@ -94,8 +94,8 @@ function classNames(...classes) {
                     leaveTo="transform opacity-0 scale-95"
                   >
             
-            <Menu.Items className="absolute z-10 ml-[-10%] mt-2 w-full origin-top-right rounded-md py-1 focus:outline-none border border-gray-500">
-    <Menu.Item className="w-96">
+            <Menu.Items className="absolute z-10 mt-4 bg-white right-0 w-[22rem] origin-top-left rounded-md py-1 focus:outline-none border border-gray-500">
+    <Menu.Item className="w-full">
         <Account currentAccount={props.currentAccount}contractInstance={props.contractInstance}/>
       
     </Menu.Item>
