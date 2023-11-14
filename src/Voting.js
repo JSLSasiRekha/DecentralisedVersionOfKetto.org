@@ -1,5 +1,11 @@
 import React, { useEffect,useState } from "react";
 import { ethers } from "ethers";
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from '@chakra-ui/react'
 
 const Voting = (props) => {
     const [account, setAccount] = useState(props.currentAccount);
@@ -7,8 +13,22 @@ const Voting = (props) => {
     const [projects, setProjects] = useState([]);
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
     const [sufficientBalance,setSufficientBalance]=useState(true);
+    const [success,setSuccess]=useState(false);
   
-
+    useEffect(() => {
+      const handleDocumentClick = () => {
+        if (success) {
+          setSuccess(false);
+        }
+      };
+  
+      document.addEventListener("click", handleDocumentClick);
+  
+      // Clean up the event listener when the component unmounts
+      return () => {
+        document.removeEventListener("click", handleDocumentClick);
+      };
+    }, [success]);
       
     useEffect(() => {
         if (props.contractInstance) {
@@ -79,14 +99,12 @@ const Voting = (props) => {
         getBalanceAccount();
         if (sufficientBalance &&fundraisingContract && selectedProjectIndex !== null)  {
           try {
-            const transaction = await props.contractInstance.voteForProject(selectedProjectIndex).send({
-              from: account,
-              gas: 2000000 // Set an appropriate gas limit based on your network and contract complexity
+            const transaction = await props.contractInstance.voteForProject(selectedProjectIndex,{
+              gasLimit: 2000000,
             });
-      
             // Wait for the transaction to be mined
             await transaction.wait();
-      
+            setSuccess(true);
             // Add logic to handle success
             console.log('Vote successful!');
 
@@ -166,7 +184,35 @@ const Voting = (props) => {
       </div>
     </div>
   </div>
-    </div>:<div></div>}
+    </div>:null}
+    {success?<div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+  <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+    <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+
+      <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <Alert
+            status='success'
+            variant='subtle'
+            flexDirection='column'
+            alignItems='center'
+            justifyContent='center'
+            textAlign='center'
+            height='200px'
+          >
+            <AlertIcon  color="green" boxSize='40px' mr={0} />
+            <AlertTitle mt={4} mb={1} fontSize='lg'>
+              You have successfully voted!
+            </AlertTitle>
+            <AlertDescription maxWidth='sm'>
+              Thank you for.
+            </AlertDescription>
+          </Alert>
+      </div>
+    </div>
+  </div>
+    </div>:null}
    
 
 </div>

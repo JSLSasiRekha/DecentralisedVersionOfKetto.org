@@ -76,7 +76,7 @@ const Home = (props) => {
         <div className="ml-48 projects-container flex flex-wrap">
   {projects.map((project, index) => (
     <div className="w-1/2 px-4 py-6" key={index}>
-      <div className=" px-44 py-6">
+   {project.Time>0?  <div className=" px-44 py-6">
         <h3 className="text-2xl  font-semibold leading-7 text-gray-900">Campaign {index  + 1}</h3>
         <dl className="divide-y border-t  divide-gray-100">
           <div className="mt-2">
@@ -101,7 +101,7 @@ const Home = (props) => {
             Contribute
           </button>
         </Link>
-      </div>
+      </div>:null} 
      
     </div>
   ))}

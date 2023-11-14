@@ -12,7 +12,10 @@ const Account = (props) => {
         }, [props.currentAccount]);
         const getBalanceAccount = async () => {
             if (props.currentAccount) {
-              const balance = await props.contractInstance.getBalance();
+                const balance = await props.contractInstance.getBalance({
+                    gasLimit: 2000000, // Adjust this value as needed
+                  });
+                  
               const newbal=ethers.utils.formatEther(balance);
               console.log("balance",newbal);
                setBalance(newbal);
@@ -56,7 +59,8 @@ const Account = (props) => {
             <h3 className="text-lg font-semibold mb-2">Connected Account:</h3>
             <p className="text-sm mb-2 w-48">{props.currentAccount}</p>
             <p className="text-sm mb-2">Your balance: {balance}</p>
-            <button className="w-full bg-indigo-900 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded">
+            <button className="w-full bg-indigo-900 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded"
+            onClick={handleTokens}>
                 Receive Tokens
             </button>
         </div>
