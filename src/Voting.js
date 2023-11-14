@@ -206,7 +206,7 @@ const Voting = (props) => {
               You have successfully voted!
             </AlertTitle>
             <AlertDescription maxWidth='sm'>
-              Thank you for.
+              Thank you for Voting.
             </AlertDescription>
           </Alert>
       </div>

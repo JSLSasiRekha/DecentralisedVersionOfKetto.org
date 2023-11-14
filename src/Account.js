@@ -57,8 +57,8 @@ const Account = (props) => {
         // </button>
         <div className="p-4 flex flex-col items-start">
             <h3 className="text-lg font-semibold mb-2">Connected Account:</h3>
-            <p className="text-sm mb-2 w-48">{props.currentAccount}</p>
-            <p className="text-sm mb-2">Your balance: {balance}</p>
+            <p className="text-sm font-medium mb-2 w-48">{props.currentAccount}</p>
+            <p className="text-sm font-medium mb-2">Your balance: {balance}</p>
             <button className="w-full bg-indigo-900 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded"
             onClick={handleTokens}>
                 Receive Tokens
