@@ -1,4 +1,4 @@
-const contractAddress="0x1EFA7C8b65073BD0df494167c34BFb1f33d41BCf";
+const contractAddress="0x78103653913c8497Dc3Ae1984D14a5eEFfBE06C1";
 const contractABI=[
 	{
 		"inputs": [],
@@ -577,7 +577,6 @@ const contractABI=[
 		"type": "function"
 	}
 ]
-
 const constants = {contractAddress, contractABI};
 
 export default constants;

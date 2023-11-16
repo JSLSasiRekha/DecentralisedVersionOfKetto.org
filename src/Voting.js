@@ -110,8 +110,11 @@ const Voting = (props) => {
 
           } catch (error) {
             // Add logic to handle error
+            if(error.message.includes("You have already voted for this project"))
+            console.log("Already voted");
             console.error('Error voting:', error);
           }
+        
         }
       };
       
