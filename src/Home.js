@@ -80,12 +80,12 @@ const Home = (props) => {
         <h3 className="text-2xl  font-semibold leading-7 text-gray-900">Campaign {index  + 1}</h3>
         <dl className="divide-y border-t  divide-gray-100">
           <div className="mt-2">
-            <dt className=" text-xl font-medium text-gray-900">Goal Amount:</dt>
-            <dd className="text-xl text-gray-700">{project.GoalAmount} ETH</dd>
+            <dt className=" text-xl font-medium text-gray-900">Goal Tokens:</dt>
+            <dd className="text-xl text-gray-700">{project.GoalAmount} </dd>
           </div>
           <div className="mt-2">
-            <dt className="text-xl font-medium text-gray-900">Raised Amount:</dt>
-            <dd className="text-xl text-gray-700">{project.DonatedAmount} ETH</dd>
+            <dt className="text-xl font-medium text-gray-900">Raised Tokens:</dt>
+            <dd className="text-xl text-gray-700">{project.DonatedAmount} </dd>
           </div>
           <div className="mt-2">
             <dt className="text-xl font-medium text-gray-900">Duration:</dt>
