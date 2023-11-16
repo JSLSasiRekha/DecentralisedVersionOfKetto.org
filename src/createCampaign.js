@@ -74,7 +74,7 @@ useEffect(() => {
                const goalAmountInWei = ethers.utils.parseEther(goalAmount.toString());
                const durationInDays = parseInt(duration, 10);
          
-               const transaction = await props.contractInstance.createProject(goalAmountInWei, durationInDays, {
+               const transaction = await props.contractInstance.createProject(goalAmount, durationInDays, {
                  gasLimit: 2000000, // Set an appropriate gas limit based on your network and contract complexity
                });
                

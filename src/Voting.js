@@ -135,7 +135,7 @@ const Voting = (props) => {
                       <option value="" disabled>Select a Campaign</option>
                       {projects.map((project, index) => (
                           <option key={index} value={index}>
-                              Campaign {index + 1} - Goal: {project.GoalAmount} ETH, Raised: {project.DonatedAmount}, Duration Left: {project.Time}
+                              Campaign {index + 1} - Goal: {project.GoalAmount} Tokens, Raised: {project.DonatedAmount} Token, Duration Left: {project.Time}
                           </option>
                       ))}
                   </select>

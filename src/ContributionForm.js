@@ -112,14 +112,11 @@ const ContributeForm = (props) => {
           if (newBal > 0) {
             console.log("Attempting to contribute...");
     
-            const amountInWei = ethers.utils.parseEther(amountToContribute.toString());
-            console.log("Contribution amount in Wei:", amountInWei.toString());
     
             const contributeTransaction = await props.contractInstance.contribute(
               projectIndex,
-              amountInWei,
+              amountToContribute,
               {
-                value: amountInWei,
                 gasLimit: 2000000,
               }
             );
@@ -154,14 +151,14 @@ const ContributeForm = (props) => {
         <div className=" ml-48 mt-20  border-gray-900/10 pb-24">
             <h2 className=" text-5xl font-bold leading-7 text-gray-900 mb-4">Contribute to Campaign {projectIndex + 1}</h2>
             <h3 className="mt-8 text-2xl font-medium leading-7 text-gray-900 mb-4">Campaign {projectIndex + 1} Details:</h3>
-              <p className="mt-2 text-xl font-normal leading-7 text-gray-900 mb-4">Goal Amount: {projectDetails.GoalAmount} ETH</p>
-              <p className="mt-2 text-xl font-normal leading-7 text-gray-900 mb-4">Raised Amount: {projectDetails.DonatedAmount} ETH</p>
+              <p className="mt-2 text-xl font-normal leading-7 text-gray-900 mb-4">Goal Tokens: {projectDetails.GoalAmount} </p>
+              <p className="mt-2 text-xl font-normal leading-7 text-gray-900 mb-4">Raised Tokens: {projectDetails.DonatedAmount} </p>
               <p className="mt-2 text-xl font-normal leading-7 text-gray-900 mb-4">No of Votes: {projectDetails.NoOfVotes} </p>
               <p className="mt-2 text-xl font-normal leading-7 text-gray-900 mb-4">Duration: {projectDetails.Time} </p>
             <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-6">
                 <div className="sm:col-span-3">
                     <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
-                       Enter Amount To Contribute:
+                       Enter Number Of Tokens To Contribute:
                     </label>
                     <div className="mt-2">
                         <input
